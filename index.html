@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Menú de restaurante</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Un solo contenedor general: aquí irá el ÚNICO addEventListener (delegación) -->
+  <main id="app">
+    <h1>Menú del día</h1>
+
+    <!-- CREATE: formulario para agregar un plato -->
+    <form id="form-plato" class="formulario">
+      <input type="text" id="nombre" placeholder="Nombre del plato" required>
+      <input type="number" id="precio" placeholder="Precio" min="0" step="100" required>
+      <button type="submit">Agregar plato</button>
+    </form>
+
+    <div class="columnas">
+      <!-- READ: lista de platos (cada plato es una fila) -->
+      <section>
+        <h2>Platos</h2>
+        <ul id="lista-platos" class="lista">
+          <!-- Las filas las crea script.js -->
+        </ul>
+        <p id="vacio-platos" class="aviso" hidden>No hay platos. Agrega el primero arriba.</p>
+      </section>
+
+      <!-- Lista de pedido: aquí se sumarán los platos con el botón Pedir -->
+      <section>
+        <h2>Tu pedido</h2>
+        <ul id="lista-pedido" class="lista"></ul>
+        <p id="vacio-pedido" class="aviso">Aún no has pedido nada.</p>
+        <p class="total">Total: $<span id="total">0</span></p>
+      </section>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

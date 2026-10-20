@@ -1,0 +1,103 @@
+/* Paleta */
+:root {
+  --fondo: #f2f5f1;
+  --tinta: #1e2a26;
+  --verde: #2f5d50;
+  --mostaza: #e0a526;
+  --rojo: #b3402f;
+  --borde: #c9d3cc;
+  --blanco: #ffffff;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  background: var(--fondo);
+  color: var(--tinta);
+  line-height: 1.5;
+}
+
+#app {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+}
+
+h1 { font-size: 2rem; margin: 0 0 16px; }
+h2 { font-size: 1.25rem; margin: 0 0 12px; }
+
+/* Formulario */
+.formulario {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+.formulario input {
+  flex: 1 1 160px;
+  padding: 10px;
+  border: 1px solid var(--borde);
+  border-radius: 6px;
+  font: inherit;
+  background: var(--blanco);
+}
+
+/* Botones */
+button {
+  font: inherit;
+  padding: 8px 12px;
+  border: 0;
+  border-radius: 6px;
+  background: var(--verde);
+  color: var(--blanco);
+  cursor: pointer;
+}
+button:hover { filter: brightness(1.1); }
+button:focus-visible,
+input:focus-visible { outline: 3px solid var(--mostaza); outline-offset: 2px; }
+.btn-pedir { background: var(--mostaza); color: var(--tinta); }
+.btn-eliminar { background: var(--rojo); }
+
+/* Dos columnas: platos y pedido */
+.columnas {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+@media (min-width: 720px) {
+  .columnas { grid-template-columns: 3fr 2fr; }
+}
+
+/* Filas */
+.lista { list-style: none; margin: 0; padding: 0; }
+
+.plato, .item-pedido {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+  margin-bottom: 8px;
+  background: var(--blanco);
+  border: 1px solid var(--borde);
+  border-radius: 6px;
+}
+.plato .nombre { flex: 1 1 140px; font-weight: bold; }
+.plato .precio::before { content: "$"; }
+.acciones { display: flex; gap: 6px; }
+
+.aviso { color: #5b6a63; font-style: italic; }
+.total { font-size: 1.25rem; font-weight: bold; }
+
+/* Campos que aparecen al editar una fila */
+.plato.editando { border-color: var(--mostaza); }
+.editar-nombre, .editar-precio {
+  padding: 6px 8px;
+  border: 1px solid var(--borde);
+  border-radius: 6px;
+  font: inherit;
+}
+.editar-nombre { flex: 1 1 140px; }
+.editar-precio { width: 110px; }
